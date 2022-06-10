@@ -1,0 +1,93 @@
+$frontbar-image-size: 20px;
+$image-size: 35px;
+
+@mixin flex($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+.frontbar {
+  position: relative;
+  border-right: 0;
+  width: 60%;
+  @include flex(column);
+}
+.frontbar.full {
+  width: 80%;
+}
+.frontbar-no-conv {
+  font-weight: 650;
+  text-align: center;
+}
+.frontbar-chat {
+  position: fixed;
+  overflow: scroll;
+  overflow-x: hidden;
+  top: 90px;
+  bottom: 56px;
+  left: 20%;
+  right: 20%;
+  padding: 15px;
+  padding-bottom: 9px;
+  @include flex(column-reverse);
+}
+.frontbar-chat::-webkit-scrollbar {
+  width: 0;
+}
+.frontbar-chat-title {
+  position: fixed;
+  top: 50px;
+  @include flex();
+  align-items: center;
+  justify-content: baseline;
+  font-size: 17px;
+}
+.nav-image {
+  margin-right: 10px;
+  width: $image-size;
+  height: $image-size;
+  border-radius: 50%;
+}
+.title-line {
+  margin: 0;
+  position: fixed;
+  top: calc(45px + 10px + $image-size);
+  left: 20%;
+  background-color: rgb(95, 121, 116);
+  height: 1px;
+  width: 60%;
+}
+.frontbar-chat.full {
+  top: 45px;
+  right: 0;
+  justify-content: center;
+  background-color: rgba(160, 192, 186, 0.64);
+}
+.frontbar-message {
+  @include flex(column);
+}
+.frontbar-input-message {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  @include flex();
+  justify-content: baseline;
+  padding: 10px 16px;
+  border: 1px solid rgb(95, 121, 116);
+  border-left: 0;
+  border-right: 0;
+  background-color: rgb(95, 121, 116);
+}
+.frontbar-input {
+  width: 100%;
+  @include flex();
+  border-radius: 2px;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+.frontbar-image {
+  width: $frontbar-image-size;
+  height: $frontbar-image-size;
+  margin-top: 7px;
+  margin-right: 10px;
+}

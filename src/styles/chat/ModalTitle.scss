@@ -1,0 +1,131 @@
+@mixin flex($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+}
+$photo-size: 65px;
+$image-size: 35px;
+
+.modal-title {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(129, 129, 129, 0.719);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+  pointer-events: none;
+}
+.modal-title.show {
+  opacity: 1;
+  pointer-events: visible;
+}
+.modal-title-content {
+  @include flex(column);
+  width: 350px;
+  font-size: medium;
+  background-color: white;
+  border-radius: 7px;
+  padding: 10px 20px;
+  cursor: auto;
+}
+.modal-title-content.members {
+  height: 400px;
+  padding: 10px 0;
+}
+.modal-title-header {
+  align-self: flex-start;
+  padding: 0 0 10px 25px;
+}
+.modal-title-body {
+  padding: 20px 0;
+  @include flex();
+  align-items: center;
+  justify-content: baseline;
+}
+.modal-title-body.members {
+  padding: 10px 0;
+  overflow: scroll;
+  overflow-x: hidden;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 350px;
+  @include flex(column);
+}
+.modal-title-body.members::-webkit-scrollbar {
+  width: 0;
+}
+.modal-title-footer {
+  @include flex();
+  justify-content: flex-end;
+}
+.modal-title-footer.members {
+  padding: 10px 20px 0 0;
+}
+.title-photo {
+  width: $photo-size;
+  height: $photo-size;
+  border-radius: 50%;
+}
+.line-members {
+  background-color: rgba(197, 197, 197, 0.519);
+  height: 1px;
+  margin: 0;
+}
+.checkbox-user {
+  padding: 3px 0;
+  @include flex();
+  align-items: center;
+  justify-content: baseline;
+  cursor: pointer;
+  width: 100%;
+}
+.checkbox-image {
+  width: $image-size;
+  height: $image-size;
+  border-radius: 50%;
+  margin-right: 5px;
+  margin-top: -0.5px;
+}
+.checkbox-user-name {
+  margin-left: 10px;
+  cursor: pointer;
+}
+input[type="checkbox"] {
+  visibility: hidden;
+}
+.geekmark {
+  margin: 0;
+  cursor: pointer;
+  height: 38px;
+  width: 38px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+.checkbox-user:hover input ~ .geekmark {
+  border: 2px solid rgb(241, 241, 241);
+}
+.checkbox-user:hover {
+  background-color: rgb(241, 241, 241);
+}
+.checkbox-user input:checked ~ .geekmark {
+  border: 2px solid rgb(46, 66, 62);
+}
+.geekmark:after {
+  content: "";
+  display: none;
+  margin-top: -45px;
+  margin-left: -5px;
+  width: 45px;
+  height: 45px;
+  background: rgb(46, 66, 62);
+  clip-path: polygon(45% 64%, 84% 14%, 100% 28%, 47% 100%, 0 49%, 15% 32%);
+}
+.checkbox-user input:checked ~ .geekmark:after {
+  display: block;
+  transform: scale(0.5);
+}

@@ -1,0 +1,141 @@
+@mixin flex($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+}
+$image-size: 40px;
+$chat-image-size: 190px;
+
+.user-message {
+  @include flex();
+  align-content: flex-start;
+}
+.user-message.user {
+  align-self: flex-end;
+}
+.user-message.friend {
+  margin-bottom: 0;
+}
+.chat-message {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: rgb(112, 142, 136);
+  border-radius: 8px;
+  @include flex(column);
+  margin-bottom: 2px;
+}
+.chat-message.file {
+  width: calc($chat-image-size + 2px);
+  height: calc($chat-image-size + 2px);
+  padding: 0px;
+  align-items: center;
+  justify-content: center;
+}
+.chat-message.user {
+  background-color: rgb(150, 186, 178);
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+}
+.chat-message.friend {
+  border-bottom-left-radius: 0;
+}
+.chat-message.user::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -9px;
+  display: block;
+  height: 10px;
+  width: 10px;
+  z-index: -1;
+  background: inherit;
+  clip-path: url(#svgPath);
+}
+.chat-message.friend::after {
+  content: "";
+  transform: scale(-1, 1);
+  position: absolute;
+  bottom: 0;
+  left: -9px;
+  display: block;
+  height: 10px;
+  width: 10px;
+  z-index: -1;
+  background: inherit;
+  clip-path: url(#svgPath);
+}
+.chat-message.file::after {
+  display: none;
+}
+.chat-message.file.user:last-child {
+  border-bottom-right-radius: 8px;
+}
+.chat-message.file.friend {
+  height: calc($chat-image-size + 25px);
+}
+.chat-message.file.friend:last-child {
+  border-bottom-left-radius: 8px;
+}
+.message-image {
+  border-radius: 50%;
+  width: $image-size;
+  height: $image-size;
+  margin: 6px;
+  margin-left: 0;
+}
+.message-name {
+  font-weight: 600;
+  align-self: flex-start;
+}
+.message-name.file {
+  padding: 3px 5px;
+  box-sizing: border-box;
+  border: none;
+}
+.message-data {
+  @include flex();
+  justify-content: space-between;
+  color: rgb(255, 255, 255);
+}
+.message-data.file {
+  height: $chat-image-size;
+  color: rgb(255, 255, 255);
+}
+.send-file {
+  border-radius: 8px;
+  width: $chat-image-size;
+}
+.send-file.friend {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.message-text {
+  margin-right: 10px;
+  font-weight: 500;
+  align-self: flex-start;
+}
+.message-time {
+  font-size: 10px;
+  font-weight: 400;
+  align-self: flex-end;
+  color: rgba(255, 255, 255, 0.732);
+  margin-bottom: -3px;
+}
+.message-time.file {
+  position: absolute;
+  right: 7px;
+  bottom: 5px;
+  background-color: rgba(240, 248, 255, 0.256);
+  border-radius: 6px;
+  padding: 2px;
+}
+.date-message {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(129, 139, 137);
+  align-self: center;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}

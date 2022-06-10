@@ -1,0 +1,14 @@
+$danger-color: rgb(165, 8, 8);
+$success-color: rgb(46, 66, 62);
+
+.message.is-danger .message-body {
+  border-color: $danger-color;
+  color: $danger-color;
+}
+.message-body {
+  padding: 10px 0;
+}
+.message.is-success .message-body {
+  border-color: $success-color;
+  color: $success-color;
+}

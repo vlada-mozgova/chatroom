@@ -1,0 +1,81 @@
+$text-color-title: rgb(46, 66, 62);
+$text-color-default: rgb(137, 137, 137);
+$link-color: rgb(95, 121, 116);
+
+.auth-page {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(95, 121, 116);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.auth-box {
+  position: relative;
+  background-color: white;
+  color: $text-color-default;
+  width: 350px;
+  border-radius: 7px;
+  box-shadow: 0 0 8px 2px rgba(52, 72, 68, 0.844);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 25px;
+}
+.auth-title {
+  color: $text-color-title;
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0;
+}
+.auth-description {
+  color: $text-color-title;
+  margin: 1% 0 25px 0;
+}
+.auth-or {
+  position: absolute;
+  top: 175px;
+  z-index: 999;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid rgba(52, 72, 68, 0.5);
+  line-height: 0.1em;
+}
+.auth-line {
+  background: rgb(255, 255, 255);
+  padding: 0 10px;
+}
+.auth-shared {
+  width: 100%;
+  margin-top: 58px;
+}
+.auth-shared.forgot {
+  margin-top: 20px;
+}
+.text-photo {
+  color: $text-color-title;
+  float: left;
+  padding-bottom: 5px;
+}
+.link {
+  font-size: small;
+  font-weight: 500;
+  text-decoration: none;
+  color: $text-color-title;
+}
+.link.text {
+  color: $link-color;
+}
+.link.text:hover {
+  color: rgb(82, 156, 143);
+}
+.link.text:active {
+  color: $link-color;
+}
+.link.text.forgot {
+  align-self: end;
+  margin-bottom: 12px;
+}

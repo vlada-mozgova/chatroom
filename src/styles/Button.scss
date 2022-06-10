@@ -1,0 +1,94 @@
+$button-color: rgb(46, 66, 62);
+$hover-color: rgb(95, 121, 116);
+$sent-image-size: 20px;
+$googlePic-image-size: 15px;
+
+@mixin register-components {
+  outline: none;
+  font-family: inherit;
+  margin-bottom: 12px;
+  padding: 3px 8px 5px 8px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 30px;
+}
+
+.button {
+  all: unset;
+  @include register-components();
+  cursor: pointer;
+  color: white;
+  background: $button-color;
+  border-radius: 4px;
+  border: none;
+  padding-bottom: 28px;
+  text-align: center;
+}
+.button:hover {
+  background: $hover-color;
+  color: white;
+}
+.button:disabled {
+  background: $hover-color;
+  color: white;
+}
+.button:active {
+  border: none;
+  background: $button-color;
+  color: white;
+}
+.button:focus:not(.focus-visible) {
+  box-shadow: none;
+  color: white;
+  background: $button-color;
+}
+.button.google {
+  background-color: rgb(165, 8, 8);
+  padding-left: 28px;
+}
+.button.google:hover {
+  background-color: rgb(173, 70, 70);
+}
+.button.google:focus {
+  background-color: rgb(165, 8, 8);
+}
+.image {
+  position: absolute;
+}
+.image.google-pic {
+  margin: 5px 0 0 40px;
+  width: $googlePic-image-size;
+  height: $googlePic-image-size;
+}
+.button.sent {
+  font-size: $sent-image-size;
+  background: none;
+  border: none;
+  width: 20px;
+  height: 20px;
+  margin: 0 0 0 13px;
+}
+.image.sent {
+  width: $sent-image-size;
+  height: $sent-image-size;
+  margin: 4px 0 0 -8px;
+}
+.button.sent:hover {
+  background: none;
+}
+.button.button-modal {
+  background: none;
+  color: $hover-color;
+  width: fit-content;
+  font-size: 14px;
+  margin: 0 0 0 15px;
+  padding-top: 5px;
+}
+.button.button-modal:hover {
+  color: inherit;
+  background-color: rgba(185, 206, 202, 0.49);
+}
+.button.button-modal:focus {
+  color: inherit;
+  background-color: rgba(185, 206, 202);
+}

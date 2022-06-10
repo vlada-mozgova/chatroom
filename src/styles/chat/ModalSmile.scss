@@ -1,0 +1,23 @@
+@mixin flex($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+}
+.modal-smile-content {
+  position: fixed;
+  right: 18%;
+  bottom: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+  pointer-events: none;
+}
+.modal-smile-content.show {
+  opacity: 1;
+  pointer-events: visible;
+}
+aside.emoji-picker-react {
+  box-shadow: none;
+}
