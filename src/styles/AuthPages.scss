@@ -13,6 +13,7 @@ $link-color: rgb(95, 121, 116);
   align-items: center;
   justify-content: center;
 }
+
 .auth-box {
   position: relative;
   background-color: white;
@@ -25,16 +26,19 @@ $link-color: rgb(95, 121, 116);
   align-items: center;
   padding: 30px 25px;
 }
+
 .auth-title {
   color: $text-color-title;
   font-size: 19px;
   font-weight: 700;
   margin: 0;
 }
+
 .auth-description {
   color: $text-color-title;
   margin: 1% 0 25px 0;
 }
+
 .auth-or {
   position: absolute;
   top: 175px;
@@ -44,38 +48,47 @@ $link-color: rgb(95, 121, 116);
   border-bottom: 1px solid rgba(52, 72, 68, 0.5);
   line-height: 0.1em;
 }
+
 .auth-line {
   background: rgb(255, 255, 255);
   padding: 0 10px;
 }
+
 .auth-shared {
   width: 100%;
   margin-top: 58px;
+
+  &.forgot {
+    margin-top: 20px;
+  }
 }
-.auth-shared.forgot {
-  margin-top: 20px;
-}
+
 .text-photo {
   color: $text-color-title;
   float: left;
   padding-bottom: 5px;
 }
+
 .link {
   font-size: small;
   font-weight: 500;
   text-decoration: none;
   color: $text-color-title;
-}
-.link.text {
-  color: $link-color;
-}
-.link.text:hover {
-  color: rgb(82, 156, 143);
-}
-.link.text:active {
-  color: $link-color;
-}
-.link.text.forgot {
-  align-self: end;
-  margin-bottom: 12px;
+
+  &.text {
+    color: $link-color;
+
+    &:hover {
+      color: rgb(82, 156, 143);
+    }
+
+    &:active {
+      color: $link-color;
+    }
+
+    &.forgot {
+      align-self: end;
+      margin-bottom: 12px;
+    }
+  }
 }

@@ -3,6 +3,7 @@
   font-size: 16px;
   font-weight: 400;
 }
+
 $height-nav-panel: 45px;
 $image-size: 30px;
 
@@ -12,6 +13,7 @@ body {
   left: 0;
   top: $height-nav-panel;
 }
+
 .nav-panel {
   position: fixed;
   top: 0;
@@ -25,31 +27,40 @@ body {
   padding: 0 5%;
   padding-bottom: 3px;
 }
+
 .nav-friend {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
+
 .nav-text {
   @include nav-text();
   cursor: pointer;
+
+  &:hover {
+    color: rgb(46, 66, 62);
+  }
+
+  &.div {
+    padding-left: 30px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+
+  &.logo {
+    font-size: 20px;
+    cursor: default;
+
+    &.logo:hover {
+      color: white;
+    }
+  }
+
 }
-.nav-text:hover {
-  color: rgb(46, 66, 62);
-}
-.nav-text.div {
-  padding-left: 30px;
-}
-.nav-text.div:first-child {
-  padding-left: 0;
-}
-.nav-text.logo {
-  font-size: 20px;
-  cursor: default;
-}
-.nav-text.logo:hover {
-  color: white;
-}
+
 .nav-points {
   display: flex;
   flex-direction: row;

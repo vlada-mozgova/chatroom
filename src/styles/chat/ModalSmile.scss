@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: $direction;
 }
+
 .modal-smile-content {
   position: fixed;
   right: 18%;
@@ -13,11 +14,13 @@
   opacity: 0;
   transition: all 0.4s ease-in-out;
   pointer-events: none;
+
+  &.show {
+    opacity: 1;
+    pointer-events: visible;
+  }
 }
-.modal-smile-content.show {
-  opacity: 1;
-  pointer-events: visible;
-}
+
 aside.emoji-picker-react {
   box-shadow: none;
 }

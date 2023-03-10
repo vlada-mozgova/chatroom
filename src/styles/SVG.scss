@@ -4,7 +4,8 @@
   cursor: pointer;
   color: white;
   margin: -4px -10px;
-}
-.svg-addchat:hover {
-  color: rgb(46, 66, 62);
+
+  &:hover {
+    color: rgb(46, 66, 62);
+  }
 }

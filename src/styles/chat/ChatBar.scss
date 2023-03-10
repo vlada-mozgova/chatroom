@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: $align-items;
 }
+
 $image-size: 35px;
 
 .chatbar {
@@ -14,16 +15,19 @@ $image-size: 35px;
   border-left: 0;
   width: 20%;
   @include flex-column(flex-start);
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
-.chatbar::-webkit-scrollbar {
-  width: 0;
-}
+
 .chatbar-image {
   width: $image-size;
   height: $image-size;
   border-radius: 50%;
   margin-right: 5px;
 }
+
 .chatbar-chat {
   padding: 5px 15px;
   display: flex;
@@ -31,14 +35,17 @@ $image-size: 35px;
   align-items: center;
   cursor: pointer;
   width: 100%;
+
+  &:hover {
+    background-color: rgb(241, 241, 241);
+  }
+
+  &.checked {
+    background-color: rgb(125, 159, 153);
+    border-bottom: 1px solid rgb(125, 159, 153);
+  }
 }
-.chatbar-chat:hover {
-  background-color: rgb(241, 241, 241);
-}
-.chatbar-chat.checked {
-  background-color: rgb(125, 159, 153);
-  border-bottom: 1px solid rgb(125, 159, 153);
-}
+
 .chat-name {
   margin-left: 5px;
 }

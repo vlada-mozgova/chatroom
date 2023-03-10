@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: $align-items;
 }
+
 $image-size: 35px;
 
 .sidebar {
@@ -14,22 +15,26 @@ $image-size: 35px;
   @include flex-column(flex-start);
   padding-top: 15px;
 }
+
 .sidebar-members {
   margin-left: 15px;
   align-self: flex-start;
   font-weight: 700;
 }
+
 .sidebar-image {
   width: $image-size;
   height: $image-size;
   border-radius: 50%;
   margin-right: 5px;
 }
+
 .sidebar-list {
   @include flex-column(flex-start);
   margin-top: 8px;
   width: 100%;
 }
+
 .sidebar-user {
   padding: 5px 15px;
   display: flex;
@@ -38,10 +43,12 @@ $image-size: 35px;
   justify-content: baseline;
   cursor: pointer;
   width: 100%;
+
+  &:hover {
+    background-color: rgb(241, 241, 241);
+  }
 }
-.sidebar-user:hover {
-  background-color: rgb(241, 241, 241);
-}
+
 .user-name {
   margin-left: 5px;
 }

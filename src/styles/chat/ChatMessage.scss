@@ -2,19 +2,23 @@
   display: flex;
   flex-direction: $direction;
 }
+
 $image-size: 40px;
 $chat-image-size: 190px;
 
 .user-message {
   @include flex();
   align-content: flex-start;
+
+  &.user {
+    align-self: flex-end;
+  }
+
+  &.friend {
+    margin-bottom: 0;
+  }
 }
-.user-message.user {
-  align-self: flex-end;
-}
-.user-message.friend {
-  margin-bottom: 0;
-}
+
 .chat-message {
   position: relative;
   width: fit-content;
@@ -25,59 +29,67 @@ $chat-image-size: 190px;
   border-radius: 8px;
   @include flex(column);
   margin-bottom: 2px;
+
+  &.file {
+    padding: 0px;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+      display: none;
+    }
+
+    &.user:last-child {
+      border-bottom-right-radius: 8px;
+    }
+
+    &.friend {
+      height: calc($chat-image-size + 25px);
+
+      &:last-child {
+        border-bottom-left-radius: 8px;
+      }
+    }
+  }
+
+  &.user {
+    background-color: rgb(150, 186, 178);
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: -9px;
+      display: block;
+      height: 10px;
+      width: 10px;
+      z-index: -1;
+      background: inherit;
+      clip-path: url(#svgPath);
+    }
+  }
+
+  &.friend {
+    border-bottom-left-radius: 0;
+
+    &::after {
+      content: "";
+      transform: scale(-1, 1);
+      position: absolute;
+      bottom: 0;
+      left: -9px;
+      display: block;
+      height: 10px;
+      width: 10px;
+      z-index: -1;
+      background: inherit;
+      clip-path: url(#svgPath);
+    }
+  }
 }
-.chat-message.file {
-  width: calc($chat-image-size + 2px);
-  height: calc($chat-image-size + 2px);
-  padding: 0px;
-  align-items: center;
-  justify-content: center;
-}
-.chat-message.user {
-  background-color: rgb(150, 186, 178);
-  align-self: flex-end;
-  border-bottom-right-radius: 0;
-}
-.chat-message.friend {
-  border-bottom-left-radius: 0;
-}
-.chat-message.user::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: -9px;
-  display: block;
-  height: 10px;
-  width: 10px;
-  z-index: -1;
-  background: inherit;
-  clip-path: url(#svgPath);
-}
-.chat-message.friend::after {
-  content: "";
-  transform: scale(-1, 1);
-  position: absolute;
-  bottom: 0;
-  left: -9px;
-  display: block;
-  height: 10px;
-  width: 10px;
-  z-index: -1;
-  background: inherit;
-  clip-path: url(#svgPath);
-}
-.chat-message.file::after {
-  display: none;
-}
-.chat-message.file.user:last-child {
-  border-bottom-right-radius: 8px;
-}
-.chat-message.file.friend {
-  height: calc($chat-image-size + 25px);
-}
-.chat-message.file.friend:last-child {
-  border-bottom-left-radius: 8px;
-}
+
 .message-image {
   border-radius: 50%;
   width: $image-size;
@@ -85,52 +97,62 @@ $chat-image-size: 190px;
   margin: 6px;
   margin-left: 0;
 }
+
 .message-name {
   font-weight: 600;
   align-self: flex-start;
+
+  &.file {
+    padding: 3px 5px;
+    box-sizing: border-box;
+    border: none;
+  }
 }
-.message-name.file {
-  padding: 3px 5px;
-  box-sizing: border-box;
-  border: none;
-}
+
 .message-data {
   @include flex();
   justify-content: space-between;
   color: rgb(255, 255, 255);
+
+  &.file {
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(150, 186, 178);
+    border-radius: 8px;
+  }
 }
-.message-data.file {
-  height: $chat-image-size;
-  color: rgb(255, 255, 255);
-}
+
 .send-file {
   border-radius: 8px;
-  width: $chat-image-size;
+
+  &.friend {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
 }
-.send-file.friend {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
+
 .message-text {
   margin-right: 10px;
   font-weight: 500;
   align-self: flex-start;
 }
+
 .message-time {
   font-size: 10px;
   font-weight: 400;
   align-self: flex-end;
   color: rgba(255, 255, 255, 0.732);
   margin-bottom: -3px;
+
+  &.file {
+    position: absolute;
+    right: 7px;
+    bottom: 5px;
+    background-color: rgba(240, 248, 255, 0.256);
+    border-radius: 6px;
+    padding: 2px;
+  }
 }
-.message-time.file {
-  position: absolute;
-  right: 7px;
-  bottom: 5px;
-  background-color: rgba(240, 248, 255, 0.256);
-  border-radius: 6px;
-  padding: 2px;
-}
+
 .date-message {
   font-size: 12px;
   font-weight: 500;

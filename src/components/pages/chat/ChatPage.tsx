@@ -1,9 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { off, onValue, ref } from "firebase/database";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useQuery } from "../../../App";
 import { database } from "../../../firebase/config";
-import { setNewChat } from "../../../helpers/setNewChat";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { updateUser } from "../../../redux/slices/authSlices";
 import { initialNewChat, loadChat } from "../../../redux/slices/chatSlices";
@@ -23,7 +23,6 @@ export const ChatPage: React.FC = () => {
   const stateAuth = useAppSelector((state) => state.auth);
   const stateChat = useAppSelector((state) => state.chat);
   const usersList = useAppSelector((state) => state.usersList);
-  console.log(stateChat.chat);
 
   const navigate = useNavigate();
 

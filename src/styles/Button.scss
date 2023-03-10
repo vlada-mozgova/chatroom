@@ -23,72 +23,87 @@ $googlePic-image-size: 15px;
   border: none;
   padding-bottom: 28px;
   text-align: center;
+
+  &:hover {
+    background: $hover-color;
+    color: white;
+  }
+
+  &:disabled {
+    background: $hover-color;
+    color: white;
+  }
+
+  &:active {
+    border: none;
+    background: $button-color;
+    color: white;
+  }
+
+  &:focus:not(.focus-visible) {
+    box-shadow: none;
+    color: white;
+    background: $button-color;
+  }
+
+  &.google {
+    background-color: rgb(165, 8, 8);
+    padding-left: 28px;
+
+    &:hover {
+      background-color: rgb(173, 70, 70);
+    }
+
+    &:focus {
+      background-color: rgb(165, 8, 8);
+    }
+  }
+
+  &.sent {
+    font-size: $sent-image-size;
+    background: none;
+    border: none;
+    width: 20px;
+    height: 20px;
+    margin: 0 0 0 13px;
+
+    &:hover {
+      background: none;
+    }
+  }
+
+  &.button-modal {
+    background: none;
+    color: $hover-color;
+    width: fit-content;
+    font-size: 14px;
+    margin: 0 0 0 15px;
+    padding-top: 5px;
+
+    &:hover {
+      color: inherit;
+      background-color: rgba(185, 206, 202, 0.49);
+    }
+
+    &:focus {
+      color: inherit;
+      background-color: rgba(185, 206, 202);
+    }
+  }
 }
-.button:hover {
-  background: $hover-color;
-  color: white;
-}
-.button:disabled {
-  background: $hover-color;
-  color: white;
-}
-.button:active {
-  border: none;
-  background: $button-color;
-  color: white;
-}
-.button:focus:not(.focus-visible) {
-  box-shadow: none;
-  color: white;
-  background: $button-color;
-}
-.button.google {
-  background-color: rgb(165, 8, 8);
-  padding-left: 28px;
-}
-.button.google:hover {
-  background-color: rgb(173, 70, 70);
-}
-.button.google:focus {
-  background-color: rgb(165, 8, 8);
-}
+
 .image {
   position: absolute;
-}
-.image.google-pic {
-  margin: 5px 0 0 40px;
-  width: $googlePic-image-size;
-  height: $googlePic-image-size;
-}
-.button.sent {
-  font-size: $sent-image-size;
-  background: none;
-  border: none;
-  width: 20px;
-  height: 20px;
-  margin: 0 0 0 13px;
-}
-.image.sent {
-  width: $sent-image-size;
-  height: $sent-image-size;
-  margin: 4px 0 0 -8px;
-}
-.button.sent:hover {
-  background: none;
-}
-.button.button-modal {
-  background: none;
-  color: $hover-color;
-  width: fit-content;
-  font-size: 14px;
-  margin: 0 0 0 15px;
-  padding-top: 5px;
-}
-.button.button-modal:hover {
-  color: inherit;
-  background-color: rgba(185, 206, 202, 0.49);
-}
-.button.button-modal:focus {
-  color: inherit;
-  background-color: rgba(185, 206, 202);
+
+  &.google-pic {
+    margin: 5px 0 0 40px;
+    width: $googlePic-image-size;
+    height: $googlePic-image-size;
+  }
+
+  &.sent {
+    width: $sent-image-size;
+    height: $sent-image-size;
+    margin: 4px 0 0 -8px;
+  }
 }
